@@ -1,7 +1,7 @@
 package com.eazybank.config;
 
 import com.eazybank.model.Customer;
-import com.eazybank.repo.CustomerRepo;
+import com.eazybank.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,7 +16,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class EazyBankUserDetailsService implements UserDetailsService {
-    private final CustomerRepo customerRepo;
+    private final CustomerRepository customerRepo;
 
 
     @Override
