@@ -14,24 +14,24 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class EazyBankAuthenticationProvder implements AuthenticationProvider {
-    private final UserDetailsService userDetailsService;
-    private final PasswordEncoder passwordEncoder;
+  private final UserDetailsService userDetailsService;
+  private final PasswordEncoder passwordEncoder;
 
-    @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String username = authentication.getName();
-        String pwd = authentication.getCredentials().toString();
+  @Override
+  public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    String username = authentication.getName();
+    String pwd = authentication.getCredentials().toString();
 
-        UserDetails user = userDetailsService.loadUserByUsername(username);
-        if (passwordEncoder.matches(pwd, user.getPassword())) {
-            return new UsernamePasswordAuthenticationToken(username, pwd, user.getAuthorities());
-        } else {
-            throw new BadCredentialsException("Invalid Password!");
-        }
+    UserDetails user = userDetailsService.loadUserByUsername(username);
+    if (passwordEncoder.matches(pwd, user.getPassword())) {
+      return new UsernamePasswordAuthenticationToken(username, pwd, user.getAuthorities());
+    } else {
+      throw new BadCredentialsException("Invalid Password!");
     }
+  }
 
-    @Override
-    public boolean supports(Class<?> authentication) {
-        return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
-    }
+  @Override
+  public boolean supports(Class<?> authentication) {
+    return (UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication));
+  }
 }

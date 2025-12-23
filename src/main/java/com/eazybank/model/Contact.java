@@ -10,25 +10,26 @@ import lombok.Setter;
 import java.sql.Date;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @Table(name = "contact_messages")
 public class Contact {
 
-	@Id
-	@Column(name = "contact_id")
-	private String contactId;
+  @Id
+  @Column(name = "contact_id")
+  private String contactId;
 
-	@Column(name = "contact_name")
-	private String contactName;
+  @Column(name = "contact_name")
+  private String contactName;
 
-	@Column(name = "contact_email")
-	private String contactEmail;
-	
-	private String subject;
+  @Column(name = "contact_email")
+  private String contactEmail;
 
-	private String message;
+  private String subject;
 
-	@Column(name = "create_dt")
-	private Date createDt;
-	
+  private String message;
+
+  @Column(name = "create_dt")
+  private Date createDt;
+
 }

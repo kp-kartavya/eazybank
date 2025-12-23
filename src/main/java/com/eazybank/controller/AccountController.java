@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AccountController {
 
-    private final AccountsRepository accountsRepository;
+  private final AccountsRepository accountsRepository;
 
-    @GetMapping("/myAccount")
-    public Accounts getAccountDetails(@RequestParam long id) {
-        Accounts accounts = accountsRepository.findByCustomerId(id);
-        if (accounts != null) {
-            return accounts;
-        } else {
-            return null;
-        }
+  @GetMapping("/myAccount")
+  public Accounts getAccountDetails(@RequestParam long id) {
+    Accounts accounts = accountsRepository.findByCustomerId(id);
+    if (accounts != null) {
+      return accounts;
+    } else {
+      return null;
     }
+  }
 }

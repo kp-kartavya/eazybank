@@ -13,15 +13,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CardsController {
 
-    private final CardsRepository cardsRepository;
+  private final CardsRepository cardsRepository;
 
-    @GetMapping("/myCards")
-    public List<Cards> getCardDetails(@RequestParam long id) {
-        List<Cards> cards = cardsRepository.findByCustomerId(id);
-        if (cards != null ) {
-            return cards;
-        }else {
-            return null;
-        }
+  @GetMapping("/myCards")
+  public List<Cards> getCardDetails(@RequestParam long id) {
+    List<Cards> cards = cardsRepository.findByCustomerId(id);
+    if (cards != null) {
+      return cards;
+    } else {
+      return null;
     }
+  }
 }

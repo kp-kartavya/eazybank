@@ -1,0 +1,21 @@
+NORMALLY START KEYCLOAK
+	1. Go to directory where KeyCloak is.
+	2. Inside bin folder open cmd
+	3. kc.bat start-dev --http-port=8081
+	4. If not used --http-port=8081 by default it will run on 8080
+ 
+START KEYCLOAK MINIMIZED IN BACKGROUND EVEN IF TERMINAL IS CLOSED 
+	start /min "" kc.bat start-dev --http-port=8081
+	This command will open a new terminal window.
+KILL THE BACKGROUND KEYCLOAK PROCESS
+	1. netstat -ano | findstr :8081 (netstat -ano if want to know all process, findstr :port to find specific process with port)
+	2. The above command will give Process ID
+	2. taskkill /PID 4320 & taskkill /f /PID PROCESS_ID
+GIVE THE KEYCLOAK TASK A NAME
+	1. start /min "KC-TASK-1" kc.bat start-dev --http-port=8081
+	2. tasklist /v | findstr /i KC-TASK-1 (view task by name)
+TO RUN KEYCLOAK WITHOUT OPENING ANY NEW WINDOW IN BACKGROUND 
+	1. Go to directory where KeyCloak is.
+	2. Inside bin folder open powershell
+	3. Start-Process -FilePath "cmd.exe" ` -ArgumentList "/c title KC-TASK-1 && kc.bat start-dev --http-port=8081" ` -WindowStyle Hidden
+	4. Same process to kill task.	

@@ -1,15 +1,14 @@
 package com.eazybank.repository;
 
-import java.util.List;
-
+import com.eazybank.model.Loans;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.eazybank.model.Loans;
+import java.util.List;
 
 @Repository
 public interface LoanRepository extends CrudRepository<Loans, Long> {
-	
-	List<Loans> findByCustomerIdOrderByStartDtDesc(long customerId);
+
+  List<Loans> findByCustomerIdOrderByStartDtDesc(long customerId);
 
 }

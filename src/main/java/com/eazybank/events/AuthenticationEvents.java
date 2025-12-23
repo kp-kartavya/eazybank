@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class AuthenticationEvents {
 
-    @EventListener
-    public void onSuccess(AuthenticationSuccessEvent successEvent) {
-        log.info("Login successful for the user : {}", successEvent.getAuthentication().getName());
-    }
+  @EventListener
+  public void onSuccess(AuthenticationSuccessEvent successEvent) {
+    log.info("Login successful for the user : {}", successEvent.getAuthentication().getName());
+  }
 
-    @EventListener
-    public void onFailure(AbstractAuthenticationFailureEvent failureEvent) {
-        log.error("Login failed for the user : {} due to : {}", failureEvent.getAuthentication().getName(),
-                failureEvent.getException().getMessage());
-    }
+  @EventListener
+  public void onFailure(AbstractAuthenticationFailureEvent failureEvent) {
+    log.error("Login failed for the user : {} due to : {}", failureEvent.getAuthentication().getName(),
+      failureEvent.getException().getMessage());
+  }
 
 }
